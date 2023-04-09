@@ -2,21 +2,21 @@
   <div class="form-wrapper">
     <el-form ref="form" :model="form" label-width="200px">
       <el-form-item label="实验室名称：">
-        <el-input :readonly="isDetail" v-model="form.name" />
+        <el-input v-model="form.name" :readonly="isDetail" />
       </el-form-item>
       <el-form-item label="实验室地址位置：">
-        <el-input :readonly="isDetail" v-model="form.address" />
+        <el-input v-model="form.address" :readonly="isDetail" />
       </el-form-item>
       <el-form-item label="实验室容纳人数：">
-        <el-input  :readonly="isDetail" v-model="form.people" />
+        <el-input v-model="form.people" :readonly="isDetail" />
       </el-form-item>
       <el-form-item label="实验室描述：">
-        <el-input :readonly="isDetail" v-model="form.content" />
+        <el-input v-model="form.content" :readonly="isDetail" />
       </el-form-item>
       <el-form-item label="实验室开发时间：">
         <el-time-picker
-          :readonly="isDetail"
           v-model="time"
+          :readonly="isDetail"
           is-range
           value-format="HH:mm:ss"
           range-separator="至"
@@ -44,8 +44,8 @@
         :label="`场次${index+1}`"
       >
         <el-time-picker
-          :readonly="isDetail"
           v-model="session.time"
+          :readonly="isDetail"
           is-range
           value-format="HH:mm:ss"
           range-separator="至"
@@ -53,15 +53,15 @@
           end-placeholder="场次结束时间"
           placeholder="选择时间范围"
         />
-        <el-button style="margin-left: 10px" v-if="!isDetail" @click.prevent="removeSession(session)">删除</el-button>
+        <el-button v-if="!isDetail" style="margin-left: 10px" @click.prevent="removeSession(session)">删除</el-button>
       </el-form-item>
       <el-form-item>
-        <el-button size="small" v-if="!isDetail" type="primary" @click="addSession">新增场次</el-button>
+        <el-button v-if="!isDetail" size="small" type="primary" @click="addSession">新增场次</el-button>
       </el-form-item>
       <el-form-item>
         <el-form-item>
           <el-button size="small" @click="$router.back()">返回</el-button>
-          <el-button size="small" v-if="!isDetail" type="primary" @click="onSubmit">提交</el-button>
+          <el-button v-if="!isDetail" size="small" type="primary" @click="onSubmit">提交</el-button>
         </el-form-item>
       </el-form-item></el-form>
   </div>
@@ -152,7 +152,7 @@ export default {
         await updateLabApi(this.form)
         this.$message.success('编辑成功')
       } else {
-        labAddApi(this.form)
+        await labAddApi(this.form)
         this.$message.success('新增成功')
       }
       this.$router.back()

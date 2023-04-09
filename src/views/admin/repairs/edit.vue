@@ -44,7 +44,7 @@ export default {
         await updateRepairApi(this.form)
         this.$message.success('编辑成功')
       } else {
-        addRepairApi(this.form)
+       await addRepairApi(this.form)
         this.$message.success('新增成功')
       }
       this.$router.back()

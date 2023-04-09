@@ -74,7 +74,7 @@ export default {
         await updateDevicePageApi(this.form)
         this.$message.success('编辑成功')
       } else {
-        deviceAddApi(this.form)
+       await deviceAddApi(this.form)
         this.$message.success('新增成功')
       }
       this.$router.back()

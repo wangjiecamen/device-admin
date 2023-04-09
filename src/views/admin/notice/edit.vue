@@ -51,7 +51,7 @@ export default {
         await editNoticeApi(this.form)
         this.$message.success('编辑成功')
       } else {
-        addNoticeApi(this.form)
+       await addNoticeApi(this.form)
         this.$message.success('新增成功')
       }
       this.$router.back()
